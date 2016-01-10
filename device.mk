@@ -2,10 +2,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
-$(call inherit-product, device/xiaomi/hermes/vendor/copyfiles.mk)
-$(call inherit-product, vendor/xiaomi/hermes/hermes-vendor-blobs.mk)
+$(call inherit-product, device/xiaomi/hennessy/vendor/copyfiles.mk)
+$(call inherit-product, vendor/xiaomi/hennessy/hennessy-vendor-blobs.mk)
 
-LOCAL_PATH := device/xiaomi/hermes
+LOCAL_PATH := device/xiaomi/hennessy
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -14,7 +14,7 @@ PRODUCT_AAPT_CONFIG := normal xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Recovery allowed devices
-TARGET_OTA_ASSERT_DEVICE := hermes
+TARGET_OTA_ASSERT_DEVICE := hennessy
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
@@ -30,7 +30,7 @@ PRODUCT_COPY_FILES += \
 
 # init
 PRODUCT_PACKAGES += \
-    hermes
+    hennessy
 
 # gralloc
 PRODUCT_PACKAGES += \
@@ -92,7 +92,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/meta_init.project.rc:root/meta_init.project.rc \
     $(LOCAL_PATH)/ramdisk/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/ramdisk/init:root/init \
-    $(LOCAL_PATH)/ramdisk/init.hermes.power.rc:root/init.hermes.power.rc \
+    $(LOCAL_PATH)/ramdisk/init.hennessy.power.rc:root/init.hennessy.power.rc \
     $(LOCAL_PATH)/ramdisk/init.storage.rc:root/init.storage.rc \
 
 # Telecom
