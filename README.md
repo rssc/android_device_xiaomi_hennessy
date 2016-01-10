@@ -1,9 +1,7 @@
-# android_device_xiaomi_hermes
-#Thank you Lbule , Niisp , Xen0n ,xiaomi-dev(Ivan)
+# android_device_xiaomi_hennessy
+#Thank you lbule , Niisp , xen0n and xiaomi-dev(Ivan)
 
-CM12.1 Xiaomi Redmi Note 2 (MT6795)
+CM12.1 Xiaomi Redmi Note 3 (MT6795)
 
-#WORK:
-BT,GPS,GSM,IR,USSD,WIFI,CAMERA,Audio,Codec,LED..
-
-#DON'T WORK:
+#What's working and what's not working:
+To be tested
