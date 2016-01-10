@@ -147,7 +147,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS := \
-       device/xiaomi/hermes/sepolicy
+       device/xiaomi/hennessy/sepolicy
 
 #SELinux: MTK added
 BOARD_SEPOLICY_UNION := \
