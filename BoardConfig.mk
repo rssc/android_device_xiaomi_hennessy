@@ -1,6 +1,6 @@
 # mt6795 platform boardconfig
-LOCAL_PATH := device/xiaomi/hermes
--include vendor/xiaomi/hermes/BoardConfigVendor.mk
+LOCAL_PATH := device/xiaomi/hennessy
+-include vendor/xiaomi/hennessy/BoardConfigVendor.mk
 
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
