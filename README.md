@@ -4,13 +4,13 @@
 CM12.1 Xiaomi Redmi Note 3 (MT6795)
 
 #What's working 
-GPS
-All sensors except fingerprint sensor
-Bluetooth
-Wifi
+GPS,
+All sensors except fingerprint sensor,
+Bluetooth,
+Wifi,
 Auto Rotation
 
 #What's not working
-Baseband and RIL stuff
-Fingerprint sensor
+Baseband and RIL stuff,
+Fingerprint sensor,
 Camera
