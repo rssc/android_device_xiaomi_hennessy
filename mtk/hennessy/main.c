@@ -1,4 +1,4 @@
-#define LOG_TAG "hermes"
+#define LOG_TAG "hennessy"
 
 #include <fcntl.h>
 #include <string.h>
