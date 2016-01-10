@@ -1,6 +1,6 @@
 #
 #
-# system.prop for Hermes
+# system.prop for Hennessy
 #
 
 rild.libpath=/system/lib/mtk-ril.so
