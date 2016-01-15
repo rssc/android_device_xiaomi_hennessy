@@ -1363,7 +1363,7 @@ service sbchk /system/bin/sbchk
     group system
     oneshot
 
-service hermes /system/bin/hermes
+service hennessy /system/bin/hennessy
     user root
     group root
     class main

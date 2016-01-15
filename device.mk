@@ -93,7 +93,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/meta_init.rc:root/meta_init.rc \
     $(LOCAL_PATH)/ramdisk/init:root/init \
     $(LOCAL_PATH)/ramdisk/init.hennessy.power.rc:root/init.hennessy.power.rc \
-    $(LOCAL_PATH)/ramdisk/init.storage.rc:root/init.storage.rc \
 
 # Telecom
 PRODUCT_COPY_FILES += \
