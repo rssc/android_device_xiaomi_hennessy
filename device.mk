@@ -17,7 +17,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_OTA_ASSERT_DEVICE := hennessy
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+	LOCAL_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -26,17 +26,21 @@ PRODUCT_PACKAGES += \
 libxlog
 
 PRODUCT_COPY_FILES += \
-   $(LOCAL_KERNEL):kernel
+   $(LOCAL_KERNEL):prebuilt/kernel
 
-# init
+# Init
 PRODUCT_PACKAGES += \
     hennessy
 
-# gralloc
+# Gralloc
 PRODUCT_PACKAGES += \
    libgralloc_extra
 
-# hack to fix asec on emulated sdcard
+# Immvibe
+PRODUCT_PACKAGES += \
+	immvibe
+
+# Hack to fix asec on emulated sdcard
 PRODUCT_PACKAGES += \
     asec_helper
 
@@ -71,28 +75,30 @@ PRODUCT_COPY_FILES += \
 
 #Light    
 #PRODUCT_PACKAGES += \
-      #lights.mt6795 
+     #lights.mt6795 
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/enableswap.sh:root/enableswap.sh \
-    $(LOCAL_PATH)/ramdisk/factory_init.project.rc:root/factory_init.project.rc \
-    $(LOCAL_PATH)/ramdisk/factory_init.rc:root/factory_init.rc \
-    $(LOCAL_PATH)/ramdisk/fstab.charger:root/fstab.charger\
-    $(LOCAL_PATH)/ramdisk/fstab.mt6795:root/fstab.mt6795 \
-    $(LOCAL_PATH)/ramdisk/init.aee.rc:root/init.aee.rc \
-    $(LOCAL_PATH)/ramdisk/init.modem.rc:root/init.modem.rc \
-    $(LOCAL_PATH)/ramdisk/init.mt6795.rc:root/init.mt6795.rc \
-    $(LOCAL_PATH)/ramdisk/init.mt6795.usb.rc:root/init.mt6795.usb.rc \
-    $(LOCAL_PATH)/ramdisk/init.project.rc:root/init.project.rc \
-    $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
-    $(LOCAL_PATH)/ramdisk/init.ssd.rc:root/init.ssd.rc \
-    $(LOCAL_PATH)/ramdisk/init.xlog.rc:root/init.xlog.rc \
-    $(LOCAL_PATH)/ramdisk/meta_init.modem.rc:root/meta_init.modem.rc \
-    $(LOCAL_PATH)/ramdisk/meta_init.project.rc:root/meta_init.project.rc \
-    $(LOCAL_PATH)/ramdisk/meta_init.rc:root/meta_init.rc \
-    $(LOCAL_PATH)/ramdisk/init:root/init \
-    $(LOCAL_PATH)/ramdisk/init.hennessy.power.rc:root/init.hennessy.power.rc \
+    $(LOCAL_PATH)/rootdir/enableswap.sh:root/enableswap.sh \
+    $(LOCAL_PATH)/rootdir/factory_init.project.rc:root/factory_init.project.rc \
+    $(LOCAL_PATH)/rootdir/factory_init.rc:root/factory_init.rc \
+	$(LOCAL_PATH)/rootdir/file_context:root/file_context \
+    $(LOCAL_PATH)/rootdir/fstab.charger:root/fstab.charger\
+    $(LOCAL_PATH)/rootdir/fstab.mt6795:root/fstab.mt6795 \
+    $(LOCAL_PATH)/rootdir/init.aee.rc:root/init.aee.rc \
+    $(LOCAL_PATH)/rootdir/init.modem.rc:root/init.modem.rc \
+    $(LOCAL_PATH)/rootdir/init.mt6795.rc:root/init.mt6795.rc \
+    $(LOCAL_PATH)/rootdir/init.mt6795.usb.rc:root/init.mt6795.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
+    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc \
+    $(LOCAL_PATH)/rootdir/init.ssd.rc:root/init.ssd.rc \
+    $(LOCAL_PATH)/rootdir/init.xlog.rc:root/init.xlog.rc \
+    $(LOCAL_PATH)/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
+    $(LOCAL_PATH)/rootdir/meta_init.project.rc:root/meta_init.project.rc \
+    $(LOCAL_PATH)/rootdir/meta_init.rc:root/meta_init.rc \
+    $(LOCAL_PATH)/rootdir/init:root/init \
+    $(LOCAL_PATH)/rootdir/init.hermes.power.rc:root/init.hermes.power.rc \
+    $(LOCAL_PATH)/rootdir/init.cm.rc:root/init.cm.rc \
 
 # Telecom
 PRODUCT_COPY_FILES += \
@@ -141,7 +147,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
-# media	
+# Media	
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
@@ -162,6 +168,7 @@ PRODUCT_PACKAGES += \
  PRODUCT_PACKAGES += \
     lib_driver_cmd_mt66xx \
     libwifi-hal-mt66xx \
+    wifi_hal \
     libwpa_client \
     hostapd \
     hostapd_cli \
@@ -174,7 +181,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
     $(LOCAL_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
 
-# ifaddrs
+# Ifaddrs
 PRODUCT_PACKAGES += \
     libifaddrs
 
@@ -199,15 +206,16 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
      camera.disable_zsl_mode=1 \
      ro.mount.fs=EXT4 \
      persist.service.acm.enable=0 \
-     persist.sys.usb.config=mtp,mass_storage,adb \
-     persist.sys.timezone=Europe/Moscow
+     persist.sys.usb.config=mtp,mass_storage \
+     persist.sys.timezone=Asia/Shanghai
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.telephony.ril_class=MediaTekRIL \
     ro.telephony.ril.config=fakeiccid  \
     persist.call_recording.enabled=true \
-    persist.call_recording.src=1 
+    persist.call_recording.src=4 \
+    persist.debug.wfd.enable=1
 
 PRODUCT_PACKAGES += \
     librs_jni \
@@ -230,7 +238,7 @@ PRODUCT_PACKAGES += \
     resize_ext4 \
     superumount 
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=8
 
 # Dalvik/HWUI
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
