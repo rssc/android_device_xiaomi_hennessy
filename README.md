@@ -5,6 +5,7 @@
   - Vendor blobs: https://github.com/jianminglok/android_vendor_xiaomi_hennessy
 
 ### Credits (Sort by alphabetical order):
+  - arpitnnd
   - lbule
   - nofearnohappy
   - pocarropa for fixing the baseband and camera
