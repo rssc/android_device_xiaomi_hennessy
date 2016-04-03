@@ -1,4 +1,4 @@
-# CM12.1 Device tree for Redmi Note 3 (HERMES)
+# CM12.1 Device tree for Redmi Note 3 (HENNESSY)
 
 ### Other resource:
   - Kernel source: Not released yet
