@@ -9,7 +9,8 @@
   - lbule
   - nofearnohappy
   - pocarropa for fixing the baseband and camera
-  - Syl191 for the patches
+  - supersonicninja for updating the patches and fixing the SD card
+  - Syl191 for the patches 
   - The CyanogenMod Team
   - xen0n
   - xiaomi-dev (ivan19871002)
